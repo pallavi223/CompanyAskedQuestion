@@ -1,0 +1,56 @@
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int row = matrix.size();
+        int col = matrix[0].size(); //kisi bhi ek row k size nikl lo
+        vector<int> ans; 
+        
+        int count = 0;
+        int totalEle = row*col;  
+        
+        //index initialization
+        int startingRow = 0;
+        int startingCol = 0;
+        int endingRow = row-1;
+        int endingCol = col-1;
+        
+        while(count<totalEle){
+            //print startingRow -> traverse starting col to ending col & print all elements
+
+            for(int index = startingCol; count < totalEle && index<=endingCol;index++){
+                ans.push_back(matrix[startingRow][index]);
+                count++;
+            }
+            startingRow++;
+            
+            //print endingCol --> traverse startingRow to endingRow
+            for(int index = startingRow;count < totalEle && index<=endingRow;index++){
+                ans.push_back(matrix[index][endingCol]);
+                count++;
+            }
+             endingCol--;
+        
+        //print endingRow -> traverse ending col to starting col
+        for(int index = endingCol; count < totalEle && index>=startingCol;index--){
+            ans.push_back(matrix[endingRow][index]);
+            count++;
+        }
+        endingRow--;
+        
+        //print startingcol  -->traverse ending row to starting row
+        for(int index = endingRow ; count < totalEle && index>=startingRow;index--){
+            ans.push_back(matrix[index][startingCol]);
+            count++;
+        }
+        
+        startingCol++;
+              
+        }
+        return ans;
+    }
+};
+
+timeComplexity = o(mn)
