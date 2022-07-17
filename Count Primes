@@ -1,7 +1,7 @@
 Input: n = 10
 Output: 4
 
-
+Sieve of Eratosthenes theorem
 
 class Solution {
 public:
