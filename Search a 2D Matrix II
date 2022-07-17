@@ -1,0 +1,60 @@
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+Output: true
+
+//this solution give --> time Limit exceed
+
+class Solution {
+public:
+    
+        bool binarySearch(vector<int> nums, int target,int col) {
+        int start = 0;
+        int end = col-1;
+        
+    
+        while(start <= end){
+           int mid = start + (end-start)/2;
+            if(nums[mid] == target)
+                return 1;
+            else if(target > nums[mid]){
+                start++;
+            }
+            else{
+                end--;
+            }
+            mid = start+(end-start)/2;
+        }
+        return 0;
+    }
+    
+    bool searchMatrix(vector<vector<int>>& matrix, int target){
+        int col = matrix[0].size();
+        for(int i=0;i<matrix.size();i++){
+            int result = binarySearch(matrix[i],target,col);
+            if(result){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+/// 100%  accepted solution --> T(C) : O(log(mn))
+class Solution {
+public:
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+ 	int n = matrix.size(), m = matrix[0].size();
+		int r = 0, c = m - 1;
+        
+		while (r < n && c >= 0) {
+			if (matrix[r][c] == target) 
+                return true;
+			else if (matrix[r][c] > target) 
+                c--;
+			else 
+                r++;
+		}
+		return false;
+    
+}
+};
