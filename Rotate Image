@@ -3,7 +3,7 @@
 
 1. Solution
 /*
-  First we have to transpose the matrix . Then we can just swap the value of each row;
+  First we have to transpose the matrix . Then we can just swap the value of each row;  --> transponse(means col will become row and row will become col)
 */
   void rotate(vector<vector<int>>& matrix) {
         int row = matrix.size();
