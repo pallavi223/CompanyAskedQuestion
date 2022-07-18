@@ -1,0 +1,52 @@
+
+48. Rotate Image
+
+1. Solution
+/*
+  First we have to transpose the matrix . Then we can just swap the value of each row;
+*/
+  void rotate(vector<vector<int>>& matrix) {
+        int row = matrix.size();
+        int col = matrix[0].size();
+        
+        for(int i=0;i<row-1;i++) {
+            for(int j=i+1;j<col;j++) {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+        
+     
+        
+        for(int i=0;i<row;i++) {
+               int low = 0;
+               int high = col-1;
+              while(low < high) {
+                    swap(matrix[i][low], matrix[i][high]);
+                    low++;
+                    high--;
+              }
+        }    
+    }
+    
+    2. Solution
+    class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int row = matrix.size();
+        int col = matrix[0].size();
+        
+       //we will swap the diagonal elements
+       for(int i=0;i<row;i++){
+           for(int j=0;j<i;j++){
+               swap(matrix[i][j],matrix[j][i]);
+           }
+       }
+        
+     //reverse each row of the matrix
+        for(int i=0;i<row;i++){
+            
+        reverse(matrix[i].begin(),matrix[i].end());
+            
+        }
+    }
+};
