@@ -1,0 +1,58 @@
+5 3
+1 2 3 4 5
+1 2 3
+Output: 
+5
+
+    //This solution time limit exceeds
+    int doUnion(int a[], int n, int b[], int m)  {
+        //code here
+        int i=0;
+        int j=0;
+        int count=0;
+        while(i<n && j<m){
+            if(a[i] < b[j]){
+                count++;
+                i++;
+               
+            }
+            else if(a[i] > b[j]){
+                count++;
+                j++;
+            }
+            else {
+                count++;
+                i++;
+                j++;
+            }
+            
+        }
+        while(i < n){
+            count++;
+        }
+        while(j<m){
+            count++;
+        }
+        return count;
+    }
+};
+
+
+2. Optimise sol
+ int doUnion(int a[], int n, int b[], int m)  {
+      vector<int> ans;
+      for(int i=0;i<n;i++){
+          ans.push_back(a[i]);
+      }
+      for(int j=0;j<m;j++){
+          ans.push_back(b[j]);
+      }
+      sort(ans.begin(),ans.end());
+      int count=0;
+      for(int i=0;i<ans.size();i++){
+          if(ans[i] != ans[i-1]){
+              count++;
+          }
+      }
+      return count;
+    }
