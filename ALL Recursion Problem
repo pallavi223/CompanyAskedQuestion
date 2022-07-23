@@ -71,4 +71,48 @@ int main()
     return 0;
 }
   
+  ##############  Power Problems vvvvimp for interview ###############
+ Q3 - Power of two  
+ Input: n = 16
+Output: true
+Explanation: 24 = 16
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n==1)
+            return true;
+        if(n%2 != 0 || n==0)
+            return false;
+        return isPowerOfTwo(n/2);
+    }
+};
+
+Q4. Power of Four
+Input: n = 16
+Output: true
+
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        //base case 
+     if(n==0){
+       return false ;
+        }
+          while(n%4==0){
+            n=n/4;
+           }
+        if(n==1){
+         return true;
+         }
+          else return false;
+
+    }
+};
+
+Q5. Power of three
+Input: n = 27
+Output: true
+
+
  
