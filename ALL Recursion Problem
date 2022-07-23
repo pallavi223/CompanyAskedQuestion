@@ -17,7 +17,7 @@ public:
 };
 
 
-Q2 -- Count Ways To Reach The N-th Stairs (vvimp  -> interview)
+Q2 -- Count Ways To Reach The N-th Stairs (vvimp  -> interview)  OR Jump Game
 int n = 2
 o/p - 3
 
