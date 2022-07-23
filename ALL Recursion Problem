@@ -33,3 +33,42 @@ int countDistinctWays(int nStairs) {
         +countDistinctWays(nStairs-2);
     return ans;
 }
+
+Q3- Say Digits
+  i/p - 412
+  o/p - Four One Two
+  
+  
+#include <iostream>
+
+using namespace std;
+
+void sayDigits( int num, string arr[]){
+ //base case
+  if(num == 0){
+      return ;
+  }
+  //Processsing
+  //pick single single digits 
+  int digits = num % 10;
+  //update that digits
+  num = num / 10;
+  
+  //Recursion call 
+  
+  sayDigits(num, arr);
+  cout<<arr[digits]<<" ";
+  
+}
+
+int main()
+{
+    string arr[10] = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    int num;
+    cin>>num;
+    sayDigits(num,arr);
+
+    return 0;
+}
+  
+ 
