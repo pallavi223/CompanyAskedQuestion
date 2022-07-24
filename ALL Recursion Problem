@@ -190,6 +190,49 @@ int main() {
 Q7. Binary Search using recursion
 
 
+int binarySerach(int arr[],int start,int end,int target){
+      
+    int mid = (start + end)/2;
+      
+      if(start > end) { // base case  -> elem not found
+          return false;
+      }
+      
+      if(arr[mid] == target){
+          return true;
+      }
+      
+   if(arr[mid] < target){
+       //move to right  part --> recusrion call krnge(start = mid+1)
+       return binarySerach(arr,mid+1,end,target);
+   }
+   else{
+      //move to left part --> recusrion call krnge(end = mid-1)
+       return binarySerach(arr,start,mid-1,target);
+   }
+  
+  
+}
+
+int main()
+{
+    
+    int arr[10] = {2,3,4,6,7};
+ 
+    int target = 7;
+   
+   
+   bool ans = binarySerach(arr,0,4,7);
+   if(ans){
+       cout<<"present"<<endl;
+   }
+   else{
+       cout<<"not";
+   }
+}
+
+
+
 
 
  
