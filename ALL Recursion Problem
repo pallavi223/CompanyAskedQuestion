@@ -120,7 +120,7 @@ int getSum(int arr[],int size){
     if(size == 1)
     return arr[0];
     //recursive function
-    int sum = arr[size-1]+getSum(arr+1,size-1);
+    int sum = arr[0]+getSum(arr+1,size-1); //first elem + remaining ele lekr ayga recursion
     return sum;
 }
 
