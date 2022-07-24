@@ -110,9 +110,34 @@ public:
     }
 };
 
-Q5. Power of three
-Input: n = 27
-Output: true
+Q5. Find sum of the array element
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int getSum(int arr[],int size){
+    //base case
+    if(size == 1)
+    return arr[0];
+    //recursive function
+    int sum = arr[size-1]+getSum(arr+1,size-1);
+    return sum;
+}
+
+int main()
+{
+  int arr[10] = {3,2,5,1,6};
+  int size=5;
+  cout<<getSum(arr,5);
+ 
+    return 0;
+}
+
+o/p-30
+
+
+
+
 
 
  
