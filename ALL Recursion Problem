@@ -232,7 +232,32 @@ int main()
 }
 
 
+######################### Reverse string using recurssion ##################33
 
-
-
+Q9.   void reverseStr(string& str,int start,int end)
+{
+  cout<<"call receievd for reverse:"<<str<<endl;
+  if(str.length()==0){
+      return ;
+  }
+  if(start>end){
+      return ;
+  }
+  swap(str[start],str[end]); //ek case k liye sol kia
+  start++;
+  end--;
+  reverseStr(str,start,end); //bki k liye RR call mardi
+  
+}
+int main()
+{
+    string str = "abcde";
+    int start = 0;
+    int end = str.length()-1;
+    cout<<endl;
+    reverseStr(str,start,end);
+    cout<<endl;
+    cout << str;
+    return 0;
+}
  
