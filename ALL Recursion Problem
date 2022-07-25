@@ -109,7 +109,30 @@ public:
 
     }
 };
+326. Power of Three
 
+Input: n = 27
+Output: true
+
+class Solution {
+public:
+    
+
+    bool isPowerOfThree(int n) {
+    
+        if(n==1)
+            return 1;
+        //RR call
+       
+        if(n%3 != 0 || n == 0){
+           
+            return false;
+        }
+      bool ans = isPowerOfThree(n/3);
+        return ans;
+    
+    }
+};
 
 
 Q5. Find sum of the array element
