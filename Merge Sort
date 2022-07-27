@@ -1,0 +1,68 @@
+
+
+T(C) - > O(nlogn)
+
+
+#include <iostream>
+
+using namespace std;
+
+void Conquer(int arr[],int si,int mid,int ei){
+    
+    int size = ei-si+1;
+    int mergedArray[size];
+    int indx1 = si; // track first array
+    int indx2 = mid+1; //track second array
+    int k = 0; //track mergedArray
+    while(indx1 <= mid &&  indx2 <= ei){ 
+        if(arr[indx1] < arr[indx2]){
+            mergedArray[k++] = arr[indx1++]; //first array k elem ko dala 
+        }
+        else{
+            mergedArray[k++] = arr[indx2++];
+        }
+        
+    }
+    //add 1st array remaining elements to third array  -> jab ek array m kuch elem bach gye ho after sorting
+    while(indx1 <= mid){
+        mergedArray[k++] = arr[indx1++];
+    }
+    while(indx2 <= ei){
+        mergedArray[k++] = arr[indx2++];
+    }
+    
+    //ab mergedArray ko original array me copy krnge
+    for(int i=0,j=si;i<size;i++,j++){
+        arr[j] = mergedArray[i];
+    }
+}
+
+void divide(int arr[], int si,int ei){
+    
+    //base case
+    if(si >= ei){
+        return ;
+    }
+  
+    int mid = si+(ei-si)/2;
+    //Recursion call for left  array 
+    divide(arr,si,mid);
+    //Recursion call for right array 
+    divide(arr,mid+1,ei);
+    
+    //Conquer the array
+    Conquer(arr,si,mid,ei);
+}
+
+int main()
+{
+    int arr[] = {1,4,6,9,2,4};
+    int n = 6;
+  
+    divide(arr,0,n-1);
+    
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
