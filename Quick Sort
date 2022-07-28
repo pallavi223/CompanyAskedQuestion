@@ -1,0 +1,57 @@
+Time Complexit--> O(n^2) --> worst case -> this case occur when pivot is always smaller or greater ele (means array are already sorted)
+                  O(n log n) --> best case  
+
+
+#include <iostream>
+
+using namespace std;
+
+int partition(int arr[],int si, int ei){
+    int pivot = arr[ei]; // consider pivot as a last element 
+    int i = si-1;
+   
+    for(int j=si;j<ei;j++){
+       
+        //swap element which are less than pivot
+        if(arr[j] < pivot){
+            i++;
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    }
+    // swap with pivot element
+    i++;
+   int temp = arr[i];
+    arr[i] = arr[ei];
+    arr[ei] = temp;
+    return i;      //retrn index of pivot
+}
+
+
+void quickSort(int arr[],int si,int ei){
+    if(si < ei){
+        //call partition function to find index of pivot element
+        int pi = partition(arr,si,ei);
+        
+        //RR call left  array 
+        quickSort(arr,si,pi-1);
+        
+        //RR call right array 
+        quickSort(arr,pi+1,ei);
+        
+    }
+}
+
+int main()
+{
+    int arr[] = {3,2,5,4,9,8};
+    int n = 6;
+    
+     quickSort(arr,0,n-1); //arr,start,end
+     //print an array 
+     for(int i=0;i<n;i++){
+         cout<<arr[i]<<" ";
+     }
+    return 0;
+}
