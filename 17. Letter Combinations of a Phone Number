@@ -18,7 +18,7 @@ void solve(string digits, string output, int index, string mappings[], vector<st
     for(int i=0;i<value.length();i++){
         output.push_back(value[i]);
         solve(digits,output,index+1,mappings,ans);
-        output.pop_back();   //abc ko pop krdia --> backtracking
+        output.pop_back();   //abc ko pop krdia --> backtracking krni ha
     }
 }
     
