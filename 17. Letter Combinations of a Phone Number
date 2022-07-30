@@ -11,14 +11,14 @@ void solve(string digits, string output, int index, string mappings[], vector<st
         return ;
     }
     
-    int number = digits[index]-'0';  // gives number if we minus 0 here --> (2,3) gives digits 
+    int number = digits[index]-'0';  // gives number if we minus 0 here --> (2,3) gives digits 2-> mapping abc 
     string value = mappings[number]; // us digits  k corresponding value nikal li 
         
-    //RR call to three cases (abc,def)
+    //RR call to three cases (abc,def) -> ek baar a k liye , baar b k liye , ek baar c k liye call marni ha (loop lgya)
     for(int i=0;i<value.length();i++){
         output.push_back(value[i]);
         solve(digits,output,index+1,mappings,ans);
-        output.pop_back();
+        output.pop_back();   //abc ko pop krdia --> backtracking
     }
 }
     
