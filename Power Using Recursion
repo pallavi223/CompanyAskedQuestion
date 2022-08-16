@@ -1,0 +1,21 @@
+
+n = 9 p = 9 
+Output: 387420489
+
+
+int powF(int n, int p){
+       if(p==0){
+        return 1;
+    }
+    
+    int nm = RecursivePower(n,p-1);
+    int np = n*nm;
+    return np;
+}
+int RecursivePower(int n, int p)
+{
+    //Your code here
+    int ans = powF(n,p);
+    return ans;
+ 
+}
