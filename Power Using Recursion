@@ -19,3 +19,16 @@ int RecursivePower(int n, int p)
     return ans;
  
 }
+
+/// more optimal sol (power in logarithimic)
+
+  if(p==0){
+        return 1;
+    }
+    
+    int xpnb = RecursivePower(n,p/2);
+    int np = xpnb*xpnb;
+    if(p%2 != 0){ // for odd we multiply x
+        np = n*np;
+    }
+    return np;
